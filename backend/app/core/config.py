@@ -40,7 +40,17 @@ SUPABASE_STORAGE_BUCKET = os.environ.get("SUPABASE_STORAGE_BUCKET", "Faces").str
 os.environ.setdefault("DEEPFACE_HOME", str(PROJECT_ROOT))
 
 ALLOWED_IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png"}
+
+# Solución de continuidad con docker-compose / Render: además de los orígenes de
+# desarrollo, se admiten orígenes extra configurables vía CORS_ORIGINS (separados
+# por coma). En Render se usa la URL pública del frontend.
+_CORS_EXTRA = [
+    o.strip()
+    for o in os.environ.get("CORS_ORIGINS", "").split(",")
+    if o.strip()
+]
 DEFAULT_CORS_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    *[o for o in _CORS_EXTRA if o not in {"http://localhost:5173", "http://127.0.0.1:5173"}],
 ]
