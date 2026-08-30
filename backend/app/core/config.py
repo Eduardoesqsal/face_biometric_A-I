@@ -2,8 +2,11 @@ import os
 from pathlib import Path
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
-BACKEND_DIR = PROJECT_ROOT / "backend"
+# La raíz del proyecto es la carpeta que contiene al paquete `app`.
+# En local:  backend/app/core/config.py -> parents[2] = backend/
+# En Docker: /app/app/core/config.py      -> parents[2] = /app
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+BACKEND_DIR = PROJECT_ROOT
 ENV_FILES = [BACKEND_DIR / ".env", PROJECT_ROOT / ".env"]
 FACES_DIR = PROJECT_ROOT / "faces"
 ATTENDANCE_FILE = PROJECT_ROOT / "attendance.csv"
