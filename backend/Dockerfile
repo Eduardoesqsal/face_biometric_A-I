@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /wheels
 
-COPY backend/requirements.txt ./requirements.txt
+COPY requirements.txt .
 
 RUN pip install --upgrade pip \
     && pip wheel --no-cache-dir --wheel-dir /wheels -r requirements.txt
@@ -44,13 +44,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /app
 
 # Copiar requirements (necesario para instalar desde las ruedas) y las ruedas compiladas
-COPY backend/requirements.txt ./requirements.txt
+COPY requirements.txt .
 COPY --from=builder /wheels /wheels
 RUN pip install --no-cache-dir --no-index --find-links=/wheels -r requirements.txt \
     && rm -rf /wheels
 
 # Copiar código de la aplicación
-COPY backend/app ./app
+COPY app ./app
 
 # Directorio para rostros temporales (se persiste vía volumen)
 RUN mkdir -p /app/faces && chown -R app:app /app
