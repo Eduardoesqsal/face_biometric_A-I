@@ -1,0 +1,40 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    image: facecontrol-backend:latest
+    env_file:
+      - ./backend/.env
+    environment:
+      FRONTEND_URL: "${FRONTEND_URL:-http://localhost:8080}"
+    volumes:
+      - faces_data:/app/faces
+    restart: unless-stopped
+    expose:
+      - "8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    image: facecontrol-frontend:latest
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "${PORT:-8080}:80"
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
+      - /tmp
+
+volumes:
+  faces_data:

@@ -1,0 +1,32 @@
+# Dockerignore para el build del FRONTEND (contexto = raíz del monorepo).
+# NOTA: no excluir package.json / pnpm-workspace.yaml / pnpm-lock.yaml (los necesita el build).
+
+# VCS
+.git
+.gitignore
+
+# Node
+node_modules
+**/node_modules
+frontend/dist
+
+# Backend (no lo necesita la imagen del frontend)
+backend
+faces
+static
+templates
+.deepface
+attendance.csv
+
+# Datos / artefactos de prototipo
+*.log
+*.py[cod]
+__pycache__
+*.jfif
+ui.jfif
+biometric.jpeg
+_test_resp*.json
+
+# Entorno (jamás dentro de la imagen)
+.env
+.env.*

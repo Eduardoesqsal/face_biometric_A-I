@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowSyntheticDefaultImports": true,
+    "lib": ["ES2020", "DOM", "ES2015.Collection", "ES2015.Iterable"],
+    "types": ["node"],
+    "outDir": "node_modules/.vite-config-build",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": false
+  },
+  "include": ["vite.config.ts"]
+}

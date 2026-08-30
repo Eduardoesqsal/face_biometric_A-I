@@ -1,0 +1,86 @@
+# Sistema de Asistencia Facial
+
+El proyecto fue reorganizado en dos partes:
+
+- Backend en `FastAPI`, con Clean Architecture.
+- Frontend en `pnpm + Vite + React + TypeScript`, también separado por responsabilidad.
+
+La migración busca mantener el código legible, fácil de extender y con fronteras claras entre dominio, aplicación, infraestructura y presentación.
+
+## Estructura
+
+```text
+backend/
+  app/
+    core/
+    domain/
+    application/
+    infrastructure/
+    presentation/
+frontend/
+  src/
+    domain/
+    application/
+    infrastructure/
+    presentation/
+faces/
+attendance.csv
+```
+
+El backend reutiliza `faces/` y `attendance.csv` del proyecto original para no perder tus fotos ni el historial existente.
+
+## Requisitos
+
+- Python 3.11+
+- Node.js 18+
+- `pnpm`
+
+## Backend
+
+Instala dependencias:
+
+```powershell
+pip install -r requirements.txt
+```
+
+Levanta la API:
+
+```powershell
+uvicorn backend.app.main:app --reload
+```
+
+La API queda en `http://127.0.0.1:8000`.
+
+## Frontend
+
+Instala dependencias:
+
+```powershell
+pnpm install
+```
+
+Levanta la interfaz:
+
+```powershell
+pnpm --dir frontend dev
+```
+
+La interfaz queda en `http://127.0.0.1:5173`.
+
+## Scripts útiles
+
+- `python app.py` arranca la API con `uvicorn`.
+- `pnpm run dev:web` arranca el frontend desde la raíz.
+- `pnpm run build:web` genera el build de producción del frontend.
+
+## Qué cambió
+
+- El backend ya no depende de Flask.
+- La lógica de reconocimiento, persistencia y API está separada por responsabilidad.
+- La interfaz ya no vive en archivos sueltos; ahora está organizada por capas.
+- `requirements.txt` apunta al backend.
+- `app.py` quedó como lanzador de compatibilidad y `main.py` como aviso deprecado.
+
+## Siguiente paso recomendado
+
+Si quieres, en el siguiente paso puedo hacer una limpieza más agresiva y mover los archivos legacy antiguos a una carpeta `legacy/` para que el árbol del proyecto quede todavía más claro.

@@ -1,0 +1,46 @@
+# ---- Secretos / configuración local ----
+backend/.env
+frontend/.env
+*.env.local
+.env
+.env.*
+!.env.example
+
+# ---- Python backend ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# ---- Node (frontend) ----
+frontend/node_modules/
+frontend/dist/
+node_modules/
+*.log
+*.tsbuildinfo
+
+# ---- Datos biométricos (privacidad) ----
+faces/
+
+# ---- Restos de prototipo / experimentación ----
+app.py
+main.py
+attendance.csv
+ui.jfif
+biometric.jpeg
+/face.png
+static/
+templates/
+.deepface/
+/requirements.txt
+_test_resp*.json
+
+# ---- Editor / SO ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

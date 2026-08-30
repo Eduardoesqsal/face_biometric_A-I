@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "face-attendance-system",
+  "scripts": {
+    "dev:web": "pnpm --dir frontend dev",
+    "build:web": "pnpm --dir frontend build",
+    "preview:web": "pnpm --dir frontend preview"
+  }
+}
+
