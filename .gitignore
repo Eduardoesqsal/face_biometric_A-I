@@ -29,6 +29,7 @@ faces/
 # ---- Restos de prototipo / experimentación ----
 app.py
 main.py
+!backend/app/main.py
 attendance.csv
 ui.jfif
 biometric.jpeg
