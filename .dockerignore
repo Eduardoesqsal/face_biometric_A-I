@@ -10,8 +10,12 @@ node_modules
 **/node_modules
 frontend/dist
 
-# Backend (no lo necesita la imagen del frontend)
-backend
+# Backend (se comparte el contexto con su build; excluir solo artefactos innecesarios)
+backend/.venv
+backend/venv
+backend/.pytest_cache
+backend/.mypy_cache
+backend/faces
 faces
 static
 templates
