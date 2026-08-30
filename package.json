@@ -1,6 +1,10 @@
 {
   "private": true,
   "name": "face-attendance-system",
+  "packageManager": "pnpm@10.34.4",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev:web": "pnpm --dir frontend dev",
     "build:web": "pnpm --dir frontend build",
