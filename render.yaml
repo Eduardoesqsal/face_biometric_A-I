@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: facecontrol-backend
+    runtime: docker
+    rootDir: ./backend
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_STORAGE_BUCKET
+        value: Faces
+      - key: FRONTEND_URL
+        value: http://localhost:5173
+      - key: CORS_ORIGINS
+        value: ""
+      - key: RESET_ATTENDANCE_ON_STARTUP
+        value: "0"
+      - key: PYTHONUNBUFFERED
+        value: "1"
