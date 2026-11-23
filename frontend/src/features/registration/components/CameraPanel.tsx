@@ -1,4 +1,5 @@
-import type { RefObject } from "react";
+import { useState, type RefObject } from "react";
+import { ConfirmDialog } from "../../../shared/ui/ConfirmDialog";
 
 type CameraPanelProps = {
   videoRef: RefObject<HTMLVideoElement>;
@@ -25,13 +26,16 @@ export function CameraPanel({
   onViewAttendance,
   onClearRecords,
 }: CameraPanelProps) {
+  const [clearDialogOpen, setClearDialogOpen] = useState(false);
   const isError = Boolean(error);
 
-  async function handleClearRecords() {
-    if (!recordCount || !window.confirm("¿Quieres eliminar todos los registros de asistencia?")) {
-      return;
-    }
+  function handleClearRecords() {
+    if (!recordCount) return;
+    setClearDialogOpen(true);
+  }
 
+  async function confirmClearRecords() {
+    setClearDialogOpen(false);
     await onClearRecords();
   }
 
@@ -111,6 +115,14 @@ export function CameraPanel({
           Eliminar registros
         </button>
       </div>
+      <ConfirmDialog
+        open={clearDialogOpen}
+        title="¿Eliminar todos los registros?"
+        description="Esta acción eliminará todos los registros de asistencia. Confirma si deseas continuar."
+        confirmLabel="Eliminar registros"
+        onCancel={() => setClearDialogOpen(false)}
+        onConfirm={() => void confirmClearRecords()}
+      />
     </article>
   );
 }
