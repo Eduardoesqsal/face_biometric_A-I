@@ -2822,3 +2822,452 @@ body::before {
     transition: none;
   }
 }
+
+/* ---------- Precision dashboard finish ---------- */
+.fc-sidebar {
+  padding: 22px 13px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--brand-soft) 34%, var(--panel)), var(--panel) 190px),
+    var(--panel);
+}
+
+.fc-sidebar__brand {
+  padding: 8px 10px 28px;
+}
+
+.fc-sidebar__mark {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #25b65a, #126e37);
+  box-shadow: 0 8px 20px rgb(22 163 74 / 0.2), inset 0 1px rgb(255 255 255 / 0.22);
+}
+
+.fc-sidebar__mark::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: 10px;
+}
+
+.fc-sidebar__mark svg {
+  position: relative;
+  z-index: 1;
+}
+
+.fc-nav-item {
+  gap: 10px;
+  padding: 6px 9px;
+  margin: 1px 0;
+}
+
+.fc-nav-item__icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  color: var(--muted);
+  transition: color var(--motion-snap), background-color var(--motion-snap);
+}
+
+.fc-nav-item__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.fc-nav-item:hover .fc-nav-item__icon {
+  color: var(--text-soft);
+  background: color-mix(in srgb, var(--panel-hover) 72%, transparent);
+}
+
+.fc-nav-item--active {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.fc-nav-item--active .fc-nav-item__icon {
+  color: var(--success-strong);
+  background: color-mix(in srgb, var(--brand) 13%, transparent);
+}
+
+.fc-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 24;
+  min-height: 86px;
+  padding-inline: clamp(22px, 3vw, 42px);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.fc-topbar__titles h1 {
+  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+  line-height: 1.12;
+}
+
+.fc-topbar__actions {
+  gap: 12px;
+}
+
+.fc-icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+}
+
+.fc-admin {
+  min-height: 44px;
+  padding: 5px 9px 5px 7px;
+  border-radius: 13px;
+}
+
+.fc-admin__avatar {
+  width: 32px;
+  height: 32px;
+  border: 1px solid color-mix(in srgb, var(--brand) 20%, transparent);
+}
+
+.fc-session-bar {
+  min-height: 46px;
+  padding: 7px 10px 7px 14px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--panel) 78%, transparent);
+  font-size: 0.8rem;
+}
+
+.fc-session-bar > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.fc-session-bar > span::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 0 4px var(--brand-soft);
+}
+
+.fc-session-bar__action {
+  min-height: 32px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+}
+
+.fc-source-pill {
+  min-height: 30px;
+  padding: 5px 11px;
+  letter-spacing: 0.01em;
+}
+
+.fc-stat-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.fc-stat-card {
+  min-height: 154px;
+  padding: 19px 20px 17px;
+  border-radius: 15px;
+  background:
+    radial-gradient(220px 110px at 100% 0%, color-mix(in srgb, var(--brand-soft) 46%, transparent), transparent 74%),
+    var(--panel);
+}
+
+.fc-stat-card::before {
+  inset: auto 20px 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--brand) 40%, var(--line)), transparent);
+  opacity: 1;
+}
+
+.fc-stat-card__head {
+  gap: 10px;
+}
+
+.fc-stat-card__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+}
+
+.fc-stat-card__icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.fc-stat-card__value {
+  margin-top: 16px;
+  font-size: clamp(1.9rem, 2.5vw, 2.35rem);
+}
+
+.fc-stat-card__hint {
+  font-size: 0.78rem;
+}
+
+.fc-dash-row {
+  gap: 14px;
+}
+
+.fc-chart-card,
+.fc-records-card {
+  min-height: 340px;
+  padding: 22px;
+  border-radius: 16px;
+}
+
+.fc-card-head {
+  margin-bottom: 18px;
+}
+
+.fc-chart {
+  height: 250px;
+}
+
+.fc-chart__labels span {
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.fc-records__item {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: 12px 9px;
+  gap: 10px;
+}
+
+.fc-records__item .fc-badge {
+  display: inline-flex;
+}
+
+.fc-records__time {
+  grid-column: 2 / -1;
+  margin-top: -8px;
+  font-size: 0.76rem;
+}
+
+.fc-mini-card {
+  min-height: 86px;
+  border-radius: 14px;
+}
+
+.fc-badge {
+  min-height: 24px;
+  padding: 4px 9px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.fc-table-card {
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.fc-table-scroll {
+  border-radius: 12px;
+}
+
+.fc-table {
+  min-width: 620px;
+}
+
+.fc-table th:first-child,
+.fc-table td:first-child {
+  padding-left: 20px;
+}
+
+.fc-table th:last-child,
+.fc-table td:last-child {
+  padding-right: 20px;
+}
+
+.fc-table tbody tr {
+  transition: background-color var(--motion-snap), box-shadow var(--motion-snap);
+}
+
+.fc-table tbody tr:hover {
+  box-shadow: inset 3px 0 0 color-mix(in srgb, var(--brand) 62%, transparent);
+}
+
+.fc-search input,
+.fc-date-field input,
+.fc-field input,
+.fc-field select {
+  transition: border-color var(--motion-snap), box-shadow var(--motion-snap), background-color var(--motion-snap);
+}
+
+.fc-search:focus-within .fc-search__icon {
+  color: var(--success-strong);
+}
+
+.fc-report-option {
+  min-height: 46px;
+  border-radius: 10px;
+}
+
+.fc-report-option--active {
+  box-shadow: inset 3px 0 0 var(--brand);
+}
+
+.fc-settings-section {
+  border-radius: 16px;
+}
+
+.fc-settings-section .fc-card-title {
+  margin-bottom: 12px;
+}
+
+.fc-switch-row {
+  min-height: 68px;
+}
+
+.fc-register-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.fc-register-banner::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -70px;
+  top: -110px;
+  border: 1px solid color-mix(in srgb, var(--brand) 18%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 16px color-mix(in srgb, var(--brand) 3%, transparent), 0 0 0 34px color-mix(in srgb, var(--brand) 2%, transparent);
+  pointer-events: none;
+}
+
+.fc-banner-icon {
+  border-radius: 13px;
+  box-shadow: inset 0 1px rgb(255 255 255 / 0.08);
+}
+
+.camera-card {
+  border-radius: 16px;
+}
+
+.camera-feed {
+  border: 1px solid color-mix(in srgb, var(--brand) 17%, var(--line));
+  box-shadow: 0 18px 50px rgb(0 0 0 / 0.2), inset 0 0 0 7px color-mix(in srgb, var(--panel) 56%, transparent);
+}
+
+.camera-feed__corner {
+  width: 19px;
+  height: 19px;
+  border-color: color-mix(in srgb, var(--brand) 72%, white 8%);
+}
+
+.camera-feed__status {
+  top: 21px;
+}
+
+.recognition-status {
+  border-color: rgb(255 255 255 / 0.12);
+  background: rgb(13 20 16 / 0.76);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.16);
+}
+
+.fc-employee-card {
+  min-height: 82px;
+  border-radius: 13px;
+}
+
+.fc-employee-card__photo {
+  border-color: color-mix(in srgb, var(--brand) 24%, var(--line));
+}
+
+.fc-profile-card {
+  border-radius: 16px;
+}
+
+.fc-floating-theme {
+  right: 24px;
+  bottom: 24px;
+}
+
+@media (max-width: 1100px) {
+  .fc-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .fc-topbar {
+    min-height: 72px;
+    padding-inline: 16px;
+  }
+
+  .fc-sidebar__brand {
+    padding-bottom: 24px;
+  }
+
+  .fc-stat-grid {
+    gap: 10px;
+  }
+
+  .fc-stat-card {
+    min-height: 140px;
+    padding: 16px;
+  }
+
+  .fc-chart-card,
+  .fc-records-card {
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .fc-chart {
+    height: 220px;
+  }
+
+  .fc-floating-theme {
+    right: 16px;
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 460px) {
+  .fc-stat-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fc-stat-card__head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .fc-stat-card__label {
+    min-height: 2.3em;
+    font-size: 0.77rem;
+  }
+
+  .fc-stat-card__value {
+    margin-top: 8px;
+    font-size: 1.9rem;
+  }
+
+  .fc-stat-card__hint {
+    font-size: 0.7rem;
+  }
+
+  .fc-table-card {
+    padding: 10px;
+  }
+
+  .fc-session-bar {
+    padding-left: 11px;
+  }
+
+  .fc-floating-theme {
+    right: 12px;
+  }
+}
