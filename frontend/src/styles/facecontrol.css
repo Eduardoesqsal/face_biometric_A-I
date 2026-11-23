@@ -3487,3 +3487,203 @@ dialog.fc-modal::backdrop {
     animation: none;
   }
 }
+
+/* ---------- Visible card and confirmation redesign ---------- */
+#root .fc-content .fc-card,
+#root .fc-content .card,
+#root .fc-content .fc-stat-card,
+#root .fc-content .fc-mini-card,
+#root .fc-content .fc-table-card,
+#root .fc-content .fc-toolbar-card,
+#root .fc-content .fc-form-card,
+#root .fc-content .fc-settings-section,
+#root .fc-content .fc-device-card,
+#root .fc-content .fc-profile-card,
+#root .fc-content .fc-register-banner,
+#root .fc-content .fc-chart-card,
+#root .fc-content .fc-records-card,
+#root .fc-content .fc-info-card,
+#root .fc-content .fc-summary-card {
+  border: 1px solid color-mix(in srgb, var(--brand) 22%, var(--line-strong));
+  border-radius: 20px;
+  background:
+    radial-gradient(300px 190px at 100% 0%, color-mix(in srgb, var(--brand) 11%, transparent), transparent 73%),
+    linear-gradient(145deg, color-mix(in srgb, var(--panel-raised) 90%, var(--brand-soft)), var(--panel) 72%);
+  box-shadow: 0 16px 42px rgb(0 0 0 / 0.24), inset 0 1px rgb(255 255 255 / 0.07);
+  backdrop-filter: none;
+}
+
+#root .fc-content .fc-card:hover,
+#root .fc-content .card:hover,
+#root .fc-content .fc-mini-card:hover,
+#root .fc-content .fc-employee-card:hover {
+  border-color: color-mix(in srgb, var(--brand) 48%, var(--line-strong));
+  background:
+    radial-gradient(360px 220px at 100% 0%, color-mix(in srgb, var(--brand) 16%, transparent), transparent 73%),
+    linear-gradient(145deg, color-mix(in srgb, var(--panel-raised) 96%, var(--brand-soft)), var(--panel) 72%);
+  box-shadow: 0 22px 54px rgb(0 0 0 / 0.3), 0 0 0 1px color-mix(in srgb, var(--brand) 12%, transparent);
+  transform: translateY(-3px);
+}
+
+#root .fc-content .fc-stat-card {
+  min-height: 164px;
+  padding: 20px 20px 18px 22px;
+  border-left: 3px solid var(--brand);
+  background:
+    radial-gradient(250px 170px at 100% 0%, color-mix(in srgb, var(--brand) 19%, transparent), transparent 72%),
+    linear-gradient(145deg, color-mix(in srgb, var(--panel-raised) 92%, var(--brand-soft)), var(--panel) 75%);
+}
+
+#root .fc-content .fc-stat-card:nth-child(2) {
+  border-left-color: var(--info);
+}
+
+#root .fc-content .fc-stat-card:nth-child(3) {
+  border-left-color: var(--danger);
+}
+
+#root .fc-content .fc-stat-card:nth-child(4) {
+  border-left-color: var(--warning);
+}
+
+#root .fc-content .fc-stat-card::before {
+  inset: 0 0 auto auto;
+  width: 72px;
+  height: 72px;
+  background: radial-gradient(circle at top right, color-mix(in srgb, var(--brand) 16%, transparent), transparent 72%);
+  opacity: 1;
+}
+
+#root .fc-content .fc-stat-card:nth-child(2)::before {
+  background: radial-gradient(circle at top right, color-mix(in srgb, var(--info) 18%, transparent), transparent 72%);
+}
+
+#root .fc-content .fc-stat-card:nth-child(3)::before {
+  background: radial-gradient(circle at top right, color-mix(in srgb, var(--danger) 16%, transparent), transparent 72%);
+}
+
+#root .fc-content .fc-stat-card:nth-child(4)::before {
+  background: radial-gradient(circle at top right, color-mix(in srgb, var(--warning) 16%, transparent), transparent 72%);
+}
+
+#root .fc-content .fc-stat-card__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+}
+
+#root .fc-content .fc-stat-card__value {
+  margin-top: 18px;
+  font-size: clamp(2rem, 2.7vw, 2.6rem);
+}
+
+#root .fc-content .fc-table-card,
+#root .fc-content .fc-chart-card,
+#root .fc-content .fc-records-card,
+#root .fc-content .fc-settings-section,
+#root .fc-content .fc-form-card,
+#root .fc-content .fc-profile-card,
+#root .fc-content .fc-info-card,
+#root .fc-content .fc-summary-card {
+  padding: 24px;
+}
+
+#root .fc-content .fc-table-scroll {
+  border-color: color-mix(in srgb, var(--brand) 13%, var(--line));
+  border-radius: 14px;
+}
+
+#root .fc-content .fc-table th {
+  background: color-mix(in srgb, var(--panel-raised) 88%, var(--brand-soft));
+}
+
+#root .fc-content .fc-employee-card {
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--panel-raised), var(--panel) 78%);
+  box-shadow: 0 8px 22px rgb(0 0 0 / 0.16);
+}
+
+#root .fc-content .fc-employee-card:hover {
+  transform: translateY(-3px);
+}
+
+dialog.fc-modal[open] {
+  width: min(500px, calc(100vw - 32px));
+  padding: 32px;
+  border: 1px solid color-mix(in srgb, var(--brand) 34%, var(--line-strong));
+  border-radius: 24px;
+  background:
+    radial-gradient(340px 220px at 100% 0%, color-mix(in srgb, var(--brand) 17%, transparent), transparent 74%),
+    linear-gradient(150deg, color-mix(in srgb, var(--panel-raised) 96%, var(--brand-soft)), var(--panel) 68%);
+  box-shadow: 0 34px 100px rgb(0 0 0 / 0.52), inset 0 1px rgb(255 255 255 / 0.1);
+}
+
+dialog.fc-modal::backdrop {
+  background: rgb(5 10 7 / 0.78);
+  backdrop-filter: blur(12px) saturate(115%);
+  -webkit-backdrop-filter: blur(12px) saturate(115%);
+}
+
+dialog.fc-modal .fc-modal__icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--danger) 14%, var(--panel));
+  box-shadow: inset 0 1px rgb(255 255 255 / 0.07);
+}
+
+dialog.fc-modal .fc-modal__head {
+  margin-bottom: 10px;
+}
+
+dialog.fc-modal .fc-modal__head h2 {
+  font-size: clamp(1.2rem, 4vw, 1.45rem);
+}
+
+dialog.fc-modal > p {
+  max-width: 42ch;
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+dialog.fc-modal .fc-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+  padding-top: 20px;
+}
+
+dialog.fc-modal .fc-modal__actions .fc-btn {
+  min-height: 44px;
+  padding-inline: 16px;
+  border-radius: 11px;
+}
+
+@media (max-width: 600px) {
+  #root .fc-content .fc-table-card,
+  #root .fc-content .fc-chart-card,
+  #root .fc-content .fc-records-card,
+  #root .fc-content .fc-settings-section,
+  #root .fc-content .fc-form-card,
+  #root .fc-content .fc-profile-card,
+  #root .fc-content .fc-info-card,
+  #root .fc-content .fc-summary-card {
+    padding: 16px;
+  }
+
+  dialog.fc-modal[open] {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  dialog.fc-modal .fc-modal__actions {
+    flex-direction: column-reverse;
+  }
+
+  dialog.fc-modal .fc-modal__actions .fc-btn {
+    width: 100%;
+  }
+}
